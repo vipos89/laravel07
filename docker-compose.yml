@@ -34,6 +34,14 @@ services:
         environment:
             - MYSQL_ROOT_PASSWORD=root
             - MYSQL_DATABASE=laravel07
+    redis-07:
+        container_name: redis-07
+        image: redis:latest
+        ports:
+            - "6379:6379"
+
+
+
 #    my_frontend:
 #        container_name: my_frontend
 #        image: node:lts

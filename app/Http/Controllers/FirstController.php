@@ -2,11 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Helpers\BuhHelper;
+use App\Models\Category;
+use App\Models\Product;
+
 
 class FirstController extends Controller
 {
     public function index(){
-        return view('welcome');
+        $latestProducts = Product::query()
+            ->where('status', 1)
+            ->limit(10)
+            ->latest()
+            ->with('category')
+            ->get();
+
+
+        return view('welcome', compact('latestProducts'));
     }
+
 }

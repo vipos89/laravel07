@@ -16,8 +16,6 @@
          */
         public function index()
         {
-            ddd(Category::all());
-
             return view('admin.categories.index', [
                 'categories' => Category::paginate(5),
             ]);
